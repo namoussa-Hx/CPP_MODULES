@@ -34,11 +34,22 @@ void Phonebook::add_contact()
     std::cout << "Enter darkest secret: ";
     std::getline(std::cin, darkest_secret);
     contact.set_darkest_secret(darkest_secret);
-   this->contacts [contact_count % 8] = contact;
+
+    this->contacts [contact_count % 8] = contact;
 	this->contact_count++;
 	if (this->contact_count <= 8)
 		this->oldest_contact = this->contact_count;
 
+}
+
+std::string	check_dot(std::string content)
+{
+	if (content.length() > 10)
+	{
+		content.erase(content.begin() + 9, content.end());
+		content.append(".");
+	}
+	return (content);
 }
 
 void Phonebook::search_contact()
@@ -48,17 +59,15 @@ void Phonebook::search_contact()
         std::cout << "Phonebook is empty" << std::endl;
         return;
     }
-    // std::cout << "    index|first_name|last_name|nickname|phone_number|darkest_secret" << std::endl;
-    for (int i = 0; i < this->oldest_contact; i++)
-    {
-        std::cout << std::setw(10) << i + 1 << "|";
-        std::cout << std::setw(10) << this->contacts[i].get_first_name().substr(0, 10) << "|";
-        std::cout << std::setw(10) << this->contacts[i].get_last_name().substr(0, 10) << "|";
-        std::cout << std::setw(10) << this->contacts[i].get_nickname().substr(0, 10) << "|";
-        std::cout << std::setw(10) << this->contacts[i].get_phone_number().substr(0, 10) << "|";
-        std::cout << std::setw(10) << this->contacts[i].get_darkest_secret().substr(0, 10) << "|";
-        std::cout << std::endl;
-    }
+    std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
+	for (int i = 0; i < this->oldest_contact; i++)
+	{
+		std::cout << "|" << std::setw(10) << i + 1
+		<< "|" << std::setw(10) << check_dot(this->contacts[i].get_first_name())
+		<< "|" << std::setw(10) << check_dot(this->contacts[i].get_last_name())
+		<< "|" << std::setw(10) << check_dot(this->contacts[i].get_nickname()) << "|"
+		<< std::endl;
+	}
     std::string index;
     std::cout << "Enter index: ";
     std::getline(std::cin, index);
@@ -70,7 +79,6 @@ void Phonebook::search_contact()
     int i = index[0] - '1';
     this->contacts[i].print_contact();
 }
-
 
 int main ()
 {
