@@ -10,6 +10,7 @@ class Phonebook
     private:
         Contact contacts[8];
         int contact_count;
+        int oldest_contact;
     public:
         Phonebook();
         void add_contact();
