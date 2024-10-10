@@ -13,9 +13,8 @@ class Phonebook
         int oldest_contact;
     public:
         Phonebook();
-        void add_contact();
+        int add_contact();
         void search_contact();
-        // void print_contacts();
 };
 
 

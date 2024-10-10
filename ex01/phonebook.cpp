@@ -6,7 +6,7 @@ Phonebook::Phonebook()
     this->oldest_contact = 0;
 }
 
-void Phonebook::add_contact()
+int Phonebook::add_contact()
 {
     Contact contact;
     std::string first_name;
@@ -16,30 +16,35 @@ void Phonebook::add_contact()
     std::string darkest_secret;
 
     std::cout << "Enter first name: ";
-    std::getline(std::cin, first_name);
+    if(!(std::getline(std::cin, first_name)))
+        return 1;
     contact.set_first_name(first_name);
 
     std::cout << "Enter last name: ";
-    std::getline(std::cin, last_name);
+     if(!(std::getline(std::cin, last_name)))
+        return 1;
     contact.set_last_name(last_name);
 
     std::cout << "Enter nickname: ";
-    std::getline(std::cin, nickname);
+     if(!(std::getline(std::cin, nickname)))
+        return 1;
     contact.set_nickname(nickname);
 
     std::cout << "Enter phone number: ";
-    std::getline(std::cin, phone_number);
+     if(!(std::getline(std::cin, phone_number)))
+        return 1;
     contact.set_phone_number(phone_number);
 
     std::cout << "Enter darkest secret: ";
-    std::getline(std::cin, darkest_secret);
+     if(!(std::getline(std::cin, darkest_secret)))
+        return 1;
     contact.set_darkest_secret(darkest_secret);
 
     this->contacts [contact_count % 8] = contact;
 	this->contact_count++;
 	if (this->contact_count <= 8)
 		this->oldest_contact = this->contact_count;
-
+  return 0;
 }
 
 std::string	check_dot(std::string content)
@@ -76,6 +81,7 @@ void Phonebook::search_contact()
         std::cout << "Invalid index" << std::endl;
         return;
     }
+    
     int i = index[0] - '1';
     this->contacts[i].print_contact();
 }
@@ -88,12 +94,15 @@ int main ()
     while(1)
     {
         std::cout << "Enter a command: ";
-        std::getline(std::cin, command);
-
+        if (!(std::getline(std::cin, command)))
+            break;
         if(command.empty())
             continue;
         if (command == "ADD")
-            phonebook.add_contact();
+        {
+            if(phonebook.add_contact() == 1)
+               break ;
+        }
         else if (command == "SEARCH")
             phonebook.search_contact();
         else if (command == "EXIT")
