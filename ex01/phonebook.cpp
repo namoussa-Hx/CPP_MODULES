@@ -101,7 +101,7 @@ int main ()
         if (command == "ADD")
         {
             if(phonebook.add_contact() == 1)
-               break ;
+                break ;
         }
         else if (command == "SEARCH")
             phonebook.search_contact();

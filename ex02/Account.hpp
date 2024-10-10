@@ -7,6 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <time.h>
 
 class Account {
 
@@ -36,8 +37,8 @@ public:
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
 
-	Account( int initial_deposit );
-	~Account( void );
+	Account(int initial_deposit );
+	~Account(void);
 
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
