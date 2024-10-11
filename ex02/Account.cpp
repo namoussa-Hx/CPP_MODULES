@@ -1,5 +1,11 @@
 #include "Account.hpp"
 
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
+
 int Account::getNbAccounts(void)
 {
     return (Account::_nbAccounts);
@@ -51,6 +57,11 @@ Account::Account(int initial_deposit)
     std::cout << "index:" << this->_accountIndex 
         << ";amount:" << this->_amount 
         << ";created" << std::endl;
+}
+
+Account::Account() : _accountIndex(0), _amount(0), _nbDeposits(0), _nbWithdrawals(0)   
+{
+
 }
 
 void Account::displayStatus(void) const
@@ -113,4 +124,3 @@ int Account::checkAmount(void) const
 {
     return (this->_amount);
 }
-

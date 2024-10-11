@@ -4,17 +4,17 @@ SRC = Account.cpp tests.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-# CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 CC = c++
 
 all: $(NAME)
    
 $(NAME): $(OBJ)
-	$(CC)  $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CC)  -c $< -o $@
+	$(CC)  $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
