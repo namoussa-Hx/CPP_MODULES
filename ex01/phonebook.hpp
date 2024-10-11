@@ -9,8 +9,8 @@ class Phonebook
 {
     private:
         Contact contacts[8];
-        int contact_count;
-        int oldest_contact;
+        int current_count;
+        int oldest_count;
     public:
         Phonebook();
         int add_contact();

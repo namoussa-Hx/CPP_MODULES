@@ -2,8 +2,8 @@
 
 Phonebook::Phonebook()
 {
-    this->contact_count = 0;
-    this->oldest_contact = 0;
+    this->current_count = 0;
+    this->oldest_count = 0;
 }
 
 int Phonebook::add_contact()
@@ -40,10 +40,10 @@ int Phonebook::add_contact()
         return 1;
     contact.set_darkest_secret(darkest_secret);
 
-    this->contacts [contact_count % 8] = contact;
-	this->contact_count++;
-	if (this->contact_count <= 8)
-		this->oldest_contact = this->contact_count;
+    this->contacts [current_count % 8] = contact;
+	this->current_count++;
+	if (this->current_count <= 8)
+		this->oldest_count = this->current_count;
   return 0;
 }
 
@@ -59,13 +59,13 @@ std::string	check_dot(std::string content)
 
 void Phonebook::search_contact()
 {
-    if (this->oldest_contact == 0)
+    if (this->oldest_count== 0)
     {
         std::cout << "Phonebook is empty" << std::endl;
         return;
     }
     std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
-	for (int i = 0; i < this->oldest_contact; i++)
+	for (int i = 0; i < this->oldest_count; i++)
 	{
 		std::cout << "|" << std::setw(10) << i + 1
 		<< "|" << std::setw(10) << check_dot(this->contacts[i].get_first_name())
