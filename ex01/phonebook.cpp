@@ -18,26 +18,36 @@ int Phonebook::add_contact()
     std::cout << "Enter first name: ";
     if(!(std::getline(std::cin, first_name)))
         return 1;
+    if(first_name.empty())
+        return 0;
     contact.set_first_name(first_name);
 
     std::cout << "Enter last name: ";
      if(!(std::getline(std::cin, last_name)))
         return 1;
+    if(last_name.empty())
+        return 0;
     contact.set_last_name(last_name);
 
     std::cout << "Enter nickname: ";
      if(!(std::getline(std::cin, nickname)))
         return 1;
+    if(nickname.empty())
+        return 0;
     contact.set_nickname(nickname);
 
     std::cout << "Enter phone number: ";
      if(!(std::getline(std::cin, phone_number)))
         return 1;
+    if(phone_number.empty())
+       return 0;
     contact.set_phone_number(phone_number);
 
     std::cout << "Enter darkest secret: ";
      if(!(std::getline(std::cin, darkest_secret)))
         return 1;
+    if(darkest_secret.empty())
+        return 0;
     contact.set_darkest_secret(darkest_secret);
 
     this->contacts [current_count % 8] = contact;
@@ -86,11 +96,14 @@ void Phonebook::search_contact()
     this->contacts[i].print_contact();
 }
 
-int main ()
+int main (int ac, char **av)
 {
     Phonebook phonebook;
     std::string command;
+    (void)av;
 
+    if(ac > 1)
+       return 1;
     while(1)
     {
         std::cout << "Enter a command: ";
