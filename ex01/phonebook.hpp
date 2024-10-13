@@ -5,14 +5,14 @@
 #include "contact.hpp"
 #include <iomanip>
 
-class Phonebook
+class PhoneBook
 {
     private:
         Contact contacts[8];
         int current_count;
         int oldest_count;
     public:
-        Phonebook();
+        PhoneBook();
         int add_contact();
         void search_contact();
 };

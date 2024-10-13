@@ -1,12 +1,12 @@
 #include "phonebook.hpp"
 
-Phonebook::Phonebook()
+PhoneBook::PhoneBook()
 {
     this->current_count = 0;
     this->oldest_count = 0;
 }
 
-int Phonebook::add_contact()
+int PhoneBook::add_contact()
 {
     Contact contact;
     std::string first_name;
@@ -67,7 +67,7 @@ std::string	check_dot(std::string content)
 	return (content);
 }
 
-void Phonebook::search_contact()
+void PhoneBook::search_contact()
 {
     if (this->oldest_count== 0)
     {
@@ -98,7 +98,7 @@ void Phonebook::search_contact()
 
 int main (int ac, char **av)
 {
-    Phonebook phonebook;
+    PhoneBook phonebook;
     std::string command;
     (void)av;
 
