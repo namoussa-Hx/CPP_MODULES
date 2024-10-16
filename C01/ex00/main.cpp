@@ -3,8 +3,9 @@
 
 int main ()
 {
-    Zombie Foo("najib");
-    Foo.announce();
+    Zombie *foo = newZombie("najib");
+    foo->announce();
     randomChump("jack");
+    deleteZombie(foo);
     return 0;
 }
