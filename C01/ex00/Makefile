@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = Zombie
 
-SRC = megaphone.cpp
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -25,7 +25,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-
-
-
