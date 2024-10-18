@@ -1,8 +1,7 @@
 #include "myfile.hpp"
 
-
-void exec(std::string &filename, std::string &str1,
- std::string &str2)
+void exec(std::string filename, std::string str1,
+ std::string str2)
 {
     if(filename.empty() || str1.empty() || str2.empty())
     {
@@ -29,11 +28,14 @@ void exec(std::string &filename, std::string &str1,
 
     while(std::getline(infile, buffer))
     {
-        size_t found = buffer.find(str1);
-        if(found != std::string::npos)
+        size_t found = 0;
+        while ((found = buffer.find(str1)) != std::string::npos)
         {
-         outfile << str2 << std::endl;
+        buffer.erase(found, str1.length());
+        buffer.insert(found, str2);
+        found += str2.length();
         }
+    outfile << buffer << std::endl;
     }
 
     infile.close();

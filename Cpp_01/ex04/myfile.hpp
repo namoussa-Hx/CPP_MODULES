@@ -4,6 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-void exec(std::string &filename, std::string &str1, std::string &str2);
+void exec(std::string filename, std::string str1, std::string str2);
 
 #endif
