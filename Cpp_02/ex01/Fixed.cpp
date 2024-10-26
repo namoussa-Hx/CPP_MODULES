@@ -32,7 +32,7 @@ Fixed::~Fixed()
 
 Fixed & Fixed::operator=(const Fixed &src)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "copy assignment operator called" << std::endl;
 	if (this == &src)
 		return *this;
 	this->_numberFixed = src.getRawBits();
