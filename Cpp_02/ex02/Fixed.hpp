@@ -46,6 +46,7 @@ class Fixed
 	const static Fixed &max ( const Fixed & first, const Fixed &second);
 
 };
+
 std::ostream &operator<<(std::ostream &op, const Fixed &a);
 
 #endif

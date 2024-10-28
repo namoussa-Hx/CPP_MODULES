@@ -62,9 +62,15 @@ std::ostream &operator<<(std::ostream &op, const Fixed &a)
 
 Fixed Fixed::operator*(const Fixed &src) const
 {
-	Fixed rtn;
-	rtn.setRowBits((this->toInt() * src.toInt()));
-	return (rtn);
+	Fixed obj;
+	std::cout << "this->_numberFixed : " << this->getRawBits()  << std::endl;
+	std::cout << "src : " << src.getRawBits() << std::endl;
+	std::cout << "mult : " << (this->getRawBits() * src.getRawBits()) << std::endl;
+	std::cout << "shifting : " << ((this->getRawBits() * src.getRawBits()) >> this->_Bits) << std::endl;
+	
+	obj.setRowBits((this->_numberFixed * src.getRawBits()) >> this->_Bits);
+	std::cout << "tofloat : " << obj.toFloat() << std::endl;
+	return (obj);
 }
 
 Fixed Fixed::operator+(const Fixed &src) const
@@ -77,7 +83,7 @@ Fixed Fixed::operator+(const Fixed &src) const
 Fixed Fixed::operator/(const Fixed &src) const
 {
 	Fixed rtn;
-	rtn.setRowBits((this->toInt() / src.toInt()));
+	rtn.setRowBits((this->_numberFixed << this->_Bits) / src.getRawBits());
 	return (rtn);
 }
 
@@ -160,7 +166,7 @@ const Fixed  &Fixed::min(const Fixed &first, const Fixed &second)
 		return (first);
 }
 
-Fixed& Fixed::max ( Fixed & first, Fixed &second)
+Fixed& Fixed::max( Fixed &first, Fixed &second)
 {
     if(first > second)
 		return (first);
@@ -175,9 +181,3 @@ const Fixed  &Fixed::max(const Fixed &first, const Fixed &second)
 	else
 		return (second);
 }
-
-
-
-
-
-
