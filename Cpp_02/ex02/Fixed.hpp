@@ -13,8 +13,8 @@ class Fixed
     public:
      Fixed();
      ~Fixed();
-     Fixed(const int _n);
-     Fixed(const float _fn);
+     Fixed(const int _number);
+     Fixed(const float _fnumber);
      Fixed(const Fixed &src);
      Fixed &operator = (Fixed const &src);
     int getRawBits( void ) const;
@@ -28,10 +28,10 @@ class Fixed
 	Fixed operator / ( const Fixed &src ) const;
 
 
-	Fixed & operator ++ ( void ); //pre increment
-	Fixed & operator -- ( void ); //pre decrement
-	Fixed operator ++ ( int );  //post increment
-	Fixed operator -- ( int ); //post decrement
+	Fixed & operator ++ ( void ); //prefix increment
+	Fixed & operator -- ( void ); //prefix decrement
+	Fixed operator ++ ( int );  //postfix increment
+	Fixed operator -- ( int ); //postfix decrement
 
 	bool operator > ( const Fixed &src ) const;
 	bool operator < ( const Fixed &src ) const;
