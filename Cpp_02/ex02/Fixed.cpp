@@ -63,13 +63,7 @@ std::ostream &operator<<(std::ostream &op, const Fixed &a)
 Fixed Fixed::operator*(const Fixed &src) const
 {
 	Fixed obj;
-	std::cout << "this->_numberFixed : " << this->getRawBits()  << std::endl;
-	std::cout << "src : " << src.getRawBits() << std::endl;
-	std::cout << "mult : " << (this->getRawBits() * src.getRawBits()) << std::endl;
-	std::cout << "shifting : " << ((this->getRawBits() * src.getRawBits()) >> this->_Bits) << std::endl;
-	
 	obj.setRowBits((this->_numberFixed * src.getRawBits()) >> this->_Bits);
-	std::cout << "tofloat : " << obj.toFloat() << std::endl;
 	return (obj);
 }
 
