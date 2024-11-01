@@ -1,49 +1,39 @@
 #include "Point.hpp"
-#include "Fixed.hpp"
-#include <iostream>
 
-int main( void ) 
+bool bsp(const Point a, const Point b, const Point c, const Point point);
+
+int main(void)
 {
-	// No triangle
-	std::cout << "NO TRIANGLE:" << std::endl;
 	{
-		Point	a(0.0f, 0.0f);
-		Point	b(0.0f, 0.0f);
-		Point	c(0.0f, 0.0f);
-		Point	p(0.0f, 0.0f);
-		std::cout << "1. " << (bsp(a, b, c, p) ? "true" : "false") << std::endl; // 1. false
-	}
+	const Point a;
+	const Point b(10, 0);
+	const Point c(0, 10);
+	const Point point(1, 1);
 
-	// Test inside
-	std::cout << "\nTEST INSIDE:" << std::endl;
-	{
-		Point a(Fixed(1), Fixed());
-		Point b(Fixed(-1), Fixed());
-		Point c(Fixed(), Fixed(1));
-		Point p(Fixed(0.4f), Fixed(0.4f));
-		std::cout << "1. " << (bsp(a, b, c, p) ? "true" : "false") << std::endl; // 1. true
+	std::cout << "The point( x= " << point.getX() << "\t\ty= " << point.getY() << "\t) is inside the triangle\n" <<
+	"\ta( x= " << a.getX() << "\t\ty= " << a.getY() << "\t)\n" <<
+	"\tb( x= " << b.getX() << "\ty= " << b.getY() << "\t)\n" <<
+	"\tc( x= " << c.getX() << "\t\ty= " << c.getY() << "\t)\n" << std::endl;
+	if (bsp(a, b, c, point) == true)
+		std::cout << "\033[32mTRUE\033[0m" << std::endl;
+	else
+		std::cout << "\033[31mFALSE\033[0m" << std::endl;
 	}
+	std::cout << "\n---------------------------------------------------------------------\n" << std::endl;
+	{
+	Point a(-1.5, -1.5);
+	Point b(2.5, 2.5);
+	Point c(-1, -2);
+	Point point(8.5, -9);
 
-	// Test edges
-	std::cout << "\nTEST EDGES:" << std::endl;
-	{
-		Point a(Fixed(1), Fixed());
-		Point b(Fixed(-1), Fixed());
-		Point c(Fixed(), Fixed(1));
-		Point p(Fixed(0.5f), Fixed(0.5f));
-		std::cout << "1. " << (bsp(a, b, c, p) ? "true" : "false") << std::endl; // 1. false
+	std::cout << "The point( x= " << point.getX() << "\ty= " << point.getY() << "\t) is inside the triangle\n" <<
+	"\ta( x= " << a.getX() << "\ty= " << a.getY() << "\t)\n" <<
+	"\tb( x= " << b.getX() << "\ty= " << b.getY() << "\t)\n" <<
+	"\tc( x= " << c.getX() << "\ty= " << c.getY() << "\t)\n" << std::endl;
+	if (bsp(a, b, c, point) == true)
+		std::cout << "\033[32mTRUE\033[0m" << std::endl;
+	else
+		std::cout << "\033[31mFALSE\033[0m" << std::endl;
 	}
-
-	// Test vertex
-	std::cout << "\nTEST VERTEX:" << std::endl;
-	{
-		Point a(Fixed(1), Fixed());
-		Point b(Fixed(-1), Fixed());
-		Point c(Fixed(), Fixed(1));
-		Point p(Fixed(), Fixed(0.5f));
-		std::cout << "1. " << (bsp(a, b, c, p) ? "true" : "false") << std::endl; // 1. true
-		std::cout << "2. " << (bsp(a, b, c, a) ? "true" : "false") << std::endl; // 2. false
-		std::cout << "3. " << (bsp(a, b, c, b) ? "true" : "false") << std::endl; // 3. false
-		std::cout << "4. " << (bsp(a, b, c, c) ? "true" : "false") << std::endl; // 4. false
-	}
+	return (0);
 }
