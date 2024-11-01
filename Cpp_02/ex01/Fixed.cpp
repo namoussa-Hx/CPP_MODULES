@@ -9,10 +9,10 @@ Fixed::Fixed()
 
 Fixed::Fixed(const int _n)
 {
-    std::cout << "Iint constructor called" << std::endl;
+    std::cout << "int constructor called" << std::endl;
     this->_numberFixed = _n << this->_Bits;
 }
-
+ 
 Fixed::Fixed( const float fnumber )
 {
 	 std::cout << "Float constructor called" << std::endl;

@@ -63,21 +63,23 @@ std::ostream &operator<<(std::ostream &op, const Fixed &a)
 Fixed Fixed::operator*(const Fixed &src) const
 {
 	Fixed obj;
+
 	obj.setRowBits((this->_numberFixed * src.getRawBits()) >> this->_Bits);
 	return (obj);
+}
+
+Fixed Fixed::operator/(const Fixed &src) const
+{
+	Fixed rtn;
+
+	rtn.setRowBits((this->_numberFixed << this->_Bits) / src.getRawBits());
+	return (rtn);
 }
 
 Fixed Fixed::operator+(const Fixed &src) const
 {
 	Fixed rtn;
 	rtn.setRowBits((this->_numberFixed + src.getRawBits()));
-	return (rtn);
-}
-
-Fixed Fixed::operator/(const Fixed &src) const
-{
-	Fixed rtn;
-	rtn.setRowBits((this->_numberFixed << this->_Bits) / src.getRawBits());
 	return (rtn);
 }
 

@@ -15,7 +15,6 @@ int main(void)
 	else
 		std::cout << "\033[31mFALSE\033[0m" << std::endl;
 	}
-	std::cout << "\n---------------------------------------------------------------------\n" << std::endl;
 	{
 	Point a(-1.5, -1.5);
 	Point b(2.5, 2.5);
