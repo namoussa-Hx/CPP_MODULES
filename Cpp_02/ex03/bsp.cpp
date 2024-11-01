@@ -11,10 +11,7 @@ static float calculate_area(const Point p1, const Point p2, const Point p3)
 			)
 			/ 2;
 
-	if (res >= 0)
-		return (res);
-	else
-		return (res * -1);
+	return (res);
 }
 
 bool bsp(const Point a, const Point b, const Point c, const Point point)
