@@ -20,17 +20,17 @@ static float area (const Point p1, const Point p2, const Point p3)
 
 bool bsp(const Point a, const Point b, const Point c, const Point point)
 {
-	float d0, d1, d2, d3;
+	float T0, T1, T2, T3;
 	bool ret_val = false;
+  
+	T0 = area(a, b, c);
+	T1 = area(point, a, b);
+	T2 = area(point, b, c);
+	T3 = area(point, a, c);
 
-	d0 = area(a, b, c);
-	d1 = area(point, a, b);
-	d2 = area(point, b, c);
-	d3 = area(point, a, c);
-
-	if ( d1 == 0 || d2 == 0 || d3 == 0)
+	if ( T1 == 0 || T2 == 0 || T3 == 0)
 		ret_val = false;
-	else if ( d1 + d2 + d3 == d0 )
+	else if ( T1 + T2 + T3 == T0 )
 		ret_val = true;
 
 	return (ret_val);
