@@ -10,10 +10,10 @@ class Fixed
     int _numberFixed;
     static const int _Bits = 8;
     public:
-     Fixed();
-     ~Fixed();
-     Fixed(const Fixed &src);
-     Fixed &operator = (Fixed const &src);
+    Fixed();
+    ~Fixed();
+    Fixed(const Fixed &src);
+    Fixed &operator = (Fixed const &src);
     int getRawBits( void ) const;
 	void setRowBits( int const row );
 
