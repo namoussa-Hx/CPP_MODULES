@@ -22,28 +22,28 @@ class Fixed
     float toFloat( void ) const;
     int toInt( void ) const;
 
-    Fixed operator + ( const Fixed &src ) const;
-	Fixed operator - ( const Fixed &src ) const;
-	Fixed operator * ( const Fixed &src ) const;
-	Fixed operator / ( const Fixed &src ) const;
+    Fixed operator + (const Fixed &src) const;
+	Fixed operator - (const Fixed &src) const;
+	Fixed operator * ( const Fixed &src) const;
+	Fixed operator / (const Fixed &src) const;
 
 
-	Fixed & operator ++ ( void ); //prefix increment
-	Fixed & operator -- ( void ); //prefix decrement
-	Fixed operator ++ ( int );  //postfix increment
-	Fixed operator -- ( int ); //postfix decrement
+	Fixed & operator ++ (void); //prefix increment
+	Fixed & operator -- (void); //prefix decrement
+	Fixed operator ++ (int);  //postfix increment
+	Fixed operator -- (int); //postfix decrement
 
-	bool operator > ( const Fixed &src ) const;
-	bool operator < ( const Fixed &src ) const;
-	bool operator >= ( const Fixed &src ) const;
-	bool operator <= ( const Fixed &src ) const;
-	bool operator == ( const Fixed &src ) const;
-	bool operator != ( const Fixed &src ) const;
+	bool operator > (const Fixed &src) const;
+	bool operator < (const Fixed &src) const;
+	bool operator >= (const Fixed &src) const;
+	bool operator <= (const Fixed &src) const;
+	bool operator == (const Fixed &src) const;
+	bool operator != (const Fixed &src) const;
 
-	static Fixed &min ( Fixed & first, Fixed &second);
-	const static Fixed &min ( const Fixed & first, const Fixed &second);
-	static Fixed &max ( Fixed & first, Fixed &second);
-	const static Fixed &max ( const Fixed & first, const Fixed &second);
+	static Fixed &min (Fixed & first, Fixed &second);
+	const static Fixed &min (const Fixed & first, const Fixed &second);
+	static Fixed &max (Fixed & first, Fixed &second);
+	const static Fixed &max (const Fixed & first, const Fixed &second);
 
 };
 
