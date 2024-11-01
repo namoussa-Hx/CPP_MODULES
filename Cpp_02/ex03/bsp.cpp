@@ -1,6 +1,6 @@
 #include "Point.hpp"
 
-static float calcule_area(const Point p1, const Point p2, const Point p3)
+static float calculate_area(const Point p1, const Point p2, const Point p3)
 {
 	float	res;
 
@@ -22,10 +22,10 @@ bool bsp(const Point a, const Point b, const Point c, const Point point)
 	float T0, T1, T2, T3;
 	bool res = false;
   
-	T0 = calcule_area(a, b, c);
-	T1 = calcule_area(point, a, b);
-	T2 = calcule_area(point, b, c);
-	T3 = calcule_area(point, a, c);
+	T0 = calculate_area(a, b, c);
+	T1 = calculate_area(point, a, b);
+	T2 = calculate_area(point, b, c);
+	T3 = calculate_area(point, a, c);
    
    std::cout << "t0 :" << T0 << std::endl;
    std::cout << "t1: " <<  T1 << std::endl;
