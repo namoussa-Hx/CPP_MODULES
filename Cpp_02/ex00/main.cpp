@@ -6,6 +6,7 @@ int main( void )
 {
     
 Fixed a;
+a.setRowBits(90);
 Fixed b( a );
 Fixed c;
 c = b;
