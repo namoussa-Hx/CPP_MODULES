@@ -10,8 +10,9 @@ static float calculate_area(const Point p1, const Point p2, const Point p3)
 			+ ( p3.getX().toFloat() * ( p1.getY().toFloat() - p2.getY().toFloat() ) )
 			)
 			/ 2;
-
-	return (res);
+    if(res >= 0)
+		return (res);
+ return (res * -1);
 }
 
 bool bsp(const Point a, const Point b, const Point c, const Point point)
