@@ -24,11 +24,7 @@ bool bsp(const Point a, const Point b, const Point c, const Point point)
 	T1 = calculate_area(point, a, b);
 	T2 = calculate_area(point, b, c);
 	T3 = calculate_area(point, a, c);
-   
-   std::cout << "t0 :" << T0 << std::endl;
-   std::cout << "t1: " <<  T1 << std::endl;
-   std::cout << "t2 : " <<  T2 << std::endl;
-   std::cout << "t3 : " << T3 << std::endl;
+	
 	if ( T1 == 0 || T2 == 0 || T3 == 0)
 		res = false;
 	else if ( T1 + T2 + T3 == T0 )
