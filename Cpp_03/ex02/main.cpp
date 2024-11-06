@@ -3,6 +3,7 @@
 
 int main()
 {
+	std::cout << "--------------------ClapTrap---------------------------------" << std::endl;
 	{
 		ClapTrap obj1;
 		ClapTrap obj_2("najib");
@@ -16,6 +17,7 @@ int main()
 		obj_2.attack("robot_2");
 		obj_2.beRepaired(3);
 	}
+	std::cout << "--------------------ScavTrap---------------------------------" << std::endl;
 	{
 		ScavTrap a;
 		ScavTrap b("Scav");
@@ -31,6 +33,7 @@ int main()
 		b.takeDamage(15);
 		b.attack("b_Trap");
 	}
+	std::cout << "--------------------FragTrap---------------------------------" << std::endl;
 	{
 		FragTrap c;
 		FragTrap d("d_FRAG");

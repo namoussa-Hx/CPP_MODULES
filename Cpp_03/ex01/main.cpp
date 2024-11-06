@@ -2,6 +2,7 @@
 
 int main()
 {
+	std::cout << "--------------------ClapTrap---------------------------------" << std::endl;
 	{
 		ClapTrap obj1;
 		ClapTrap obj_2("najib");
@@ -15,6 +16,7 @@ int main()
 		obj_2.attack("robot_2");
 		obj_2.beRepaired(3);
 	}
+	std::cout << "--------------------ScavTrap---------------------------------" << std::endl;
 	{
 		ScavTrap a;
 		ScavTrap b("Scav");
