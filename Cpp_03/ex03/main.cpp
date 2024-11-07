@@ -50,7 +50,7 @@ int main()
 	{
 		
 		DiamondTrap a;
-		DiamondTrap b("B_diamond");
+		DiamondTrap b("OBJB_DAIMOND");
 		DiamondTrap c(a);
 
 		
