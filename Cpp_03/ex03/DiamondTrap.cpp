@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("DEFAULT_DIAMOND_clap_trap")
+DiamondTrap::DiamondTrap(void) : ClapTrap("defaultD_clap_trap")
 {
 	std::cout << "DiamondTrap Default Constructor called" << std::endl;
 	this->HitPoints = FragTrap::HitPoints;
