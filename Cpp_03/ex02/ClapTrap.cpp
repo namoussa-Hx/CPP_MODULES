@@ -27,7 +27,12 @@ ClapTrap & ClapTrap::operator = (ClapTrap const &src)
     std::cout << "ClapTrap copy assignment operator called" << std::endl;
     if(this == &src)
       return *this;
- 
+      
+    this->name = src.name;
+    this->HitPoints = src.HitPoints;
+    this->EnergyPoints= src.EnergyPoints;
+    this->AttackDamage = src.AttackDamage;
+
 return *this;
 }
 
