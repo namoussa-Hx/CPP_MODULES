@@ -6,7 +6,7 @@
 class ScavTrap : virtual public ClapTrap
 {
     private:
-    bool guardingGate;
+      bool guardingGate;
     public:
     ScavTrap();
     ~ScavTrap();
