@@ -49,7 +49,7 @@ int main()
 	std::cout << "--------------------DiamondTrap---------------------------------" << std::endl;
 	{
 		
-		DiamondTrap a;
+		DiamondTrap a("najib");
 		DiamondTrap b("OBJB_DAIMOND");
 		DiamondTrap c(a);
 
@@ -59,6 +59,7 @@ int main()
 		b.whoAmI();
 		b.attack("diamond_enemyB");
 		c.whoAmI();
+		
 	}
 	return (0);
 }
