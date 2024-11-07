@@ -11,7 +11,7 @@ FragTrap::FragTrap(): ClapTrap()
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap Deconstructor called" << std::endl;
+    std::cout << "FragTrap Destructor called" << std::endl;
 
 }
 

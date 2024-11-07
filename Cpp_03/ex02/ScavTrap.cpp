@@ -13,7 +13,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Deconstructor called" << std::endl;
+    std::cout << "ScavTrap Destructor called" << std::endl;
 
 }
 
