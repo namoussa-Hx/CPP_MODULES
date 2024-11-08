@@ -23,6 +23,7 @@ Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
     this->_numberFixed = src._numberFixed;
+	// *this = src;
 }
 
 Fixed::~Fixed()
