@@ -1,0 +1,45 @@
+#include <iostream>
+
+
+class Base
+{
+  private:
+  int *data;
+  
+  public:
+  
+  Base()
+  {
+    this->data = new int;
+    *this->data = 0;
+  }
+  Base(int a)
+  {
+   this->data = new int;
+    *this->data = a;
+  }
+  
+  int getData()
+  {
+    return *this->data;
+  }
+  void setData(int d)
+  {
+    *this->data = d;
+  }
+};
+
+int main() 
+{
+  Base obj1(30);
+  Base obj2(obj1);
+  
+  std::cout << "obj1: " << obj1.getData() << std::endl;
+  std::cout << "obj2: " << obj2.getData() << std::endl;
+   std::cout << "=================================================>\n" ;
+   obj2.setData(1000);
+    std::cout << "obj1: " << obj1.getData() << std::endl;
+  std::cout << "obj2: " << obj2.getData() << std::endl;
+  
+    return 0;
+}  
