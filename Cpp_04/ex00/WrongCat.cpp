@@ -8,6 +8,7 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat( const WrongCat &src )
 {
+	std::cout << "WrongCat copy constructor called" << std::endl;
     *this = src;
 }
 

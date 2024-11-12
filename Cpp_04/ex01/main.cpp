@@ -4,22 +4,22 @@
 
 int main()
 {
-	int arr_size = 4;
+
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	Animal* animals[arr_size];
+	Animal* animals[4];
 
-	for (int k = 0; k < (arr_size / 2); k++)
-		animals[k] = new Dog();
-		
-	for (int k = (arr_size / 2); k < arr_size; k++)
-		animals[k] = new Cat();
+		animals[0] = new Dog();
+		animals[1] = new Dog();
+		animals[2] = new Cat();
+		animals[3] = new Cat();
 
-	for ( int k = 0; k < arr_size; k++)
+	for ( int k = 0; k < 4; k++)
 		delete animals[k];
 
-	delete j;	//should not create a leak
+	delete j;
 	delete i;
 return 0;
 }
+

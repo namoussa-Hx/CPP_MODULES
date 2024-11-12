@@ -8,6 +8,7 @@ Brain::Brain()
 
 Brain::Brain( const Brain &src )
 { 
+	std::cout << "Brain copy constructor called" << std::endl;
 	*this = src; 
 }
 

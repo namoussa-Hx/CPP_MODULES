@@ -2,11 +2,13 @@
 
 Dog::Dog() 
 { 
+	std::cout << "Dog Default constructor called" << std::endl;
     this->type = "Dog";
 }
 
 Dog::Dog( const Dog &src ) 
 {
+	std::cout << "Dog copy constructor called" << std::endl;
      *this = src; 
 }
 
