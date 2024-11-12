@@ -19,6 +19,7 @@ Dog::~Dog()
 
 Dog & Dog::operator=( const Dog &src )
 {
+	std::cout << "Cat copy assignment operator called" << std::endl;
 	if (this == &src)
 		return (*this);
 	this->type = src.type;

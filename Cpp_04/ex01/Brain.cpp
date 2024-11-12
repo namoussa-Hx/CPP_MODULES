@@ -19,6 +19,7 @@ Brain::~Brain()
 
 Brain & Brain::operator=( const Brain &src )
 {
+	std::cout << "Brain copy assignment operator called" << std::endl;
 	if (this == &src)
 		return (*this);
 	for (int i = 0; i < 100; i++)
