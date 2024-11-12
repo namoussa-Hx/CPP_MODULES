@@ -19,7 +19,7 @@ int main()
 	for ( int k = 0; k < arr_size; k++)
 		delete animals[k];
 
-	delete j;	//should not create a leak
+	delete j;
 	delete i;
 return 0;
 }
