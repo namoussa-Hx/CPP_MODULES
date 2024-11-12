@@ -3,26 +3,35 @@
 
 Brain::Brain()
 {
-	std::cout << "Brain constructor called" << std::endl;
-}
-
-Brain::Brain( const Brain &src )
-{ 
-	std::cout << "Brain copy constructor called" << std::endl;
-	*this = src; 
+	this->ideas = new std::string[100];
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = "Brainy brain";
+	std::cout << "A brain has been constructed and filled with ideas\n";
 }
 
 Brain::~Brain()
 {
-	std::cout << "Brain Destructor called" << std::endl;
+	delete [] (this->ideas);
+	std::cout << "A brain has been destroyed\n";
 }
 
-Brain & Brain::operator=( const Brain &src )
+Brain::Brain(Brain & ref)
 {
-	std::cout << "Brain copy assignment operator called" << std::endl;
-	if (this == &src)
-		return (*this);
+	std::string *ref_ideas = ref.getIdeas();
+	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
-		this->ideas[i] = src.ideas[i];
+		this->ideas[i] = ref_ideas[i] + " stolen";
+	std::cout << "A brain has been copy constructed and stole the other's ideas\n";
+}
+
+Brain & Brain::operator=(Brain const & rhs)
+{
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = rhs.ideas[i];
 	return (*this);
+}
+
+std::string *Brain::getIdeas()
+{
+	return (this->ideas);
 }

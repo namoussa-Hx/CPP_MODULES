@@ -6,13 +6,15 @@
 
 class Brain
 {
-	protected:
-		std::string	ideas[100];
+	private:
+		std::string	*ideas;
 	public:
 		Brain();
-		Brain(const Brain &src);
 		~Brain();
-		Brain & operator = (const Brain &src);
+		Brain(Brain & ref);
+		Brain & operator=(Brain const & rhs);
+		std::string *getIdeas();
+
 };
 
 
