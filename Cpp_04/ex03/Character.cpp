@@ -29,8 +29,8 @@ Character::Character(Character const &src) : name(src.getName() + "_copy")
 	 std::cout << "Character copy constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
-		if ((ref.inventory)[i])
-			(this->inventory)[i] = (ref.inventory[i])->clone();
+		if ((src.inventory)[i])
+			(this->inventory)[i] = (src.inventory[i])->clone();
 	}
 }
 
@@ -40,8 +40,8 @@ Character & Character::operator=(Character const &src)
 	{
 		if (this->inventory[i])
 			delete this->inventory[i];
-		if (ref.inventory[i])
-			this->inventory[i] = (ref.inventory[i])->clone();
+		if (src.inventory[i])
+			this->inventory[i] = (src.inventory[i])->clone();
 	}
 	return (*this);
 }
