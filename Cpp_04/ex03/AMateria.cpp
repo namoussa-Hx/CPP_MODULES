@@ -2,6 +2,7 @@
 
 AMateria::AMateria()
 {
+	this->type = "";
 	std::cout << "materia default constructor called" << std::endl;
 }
 
