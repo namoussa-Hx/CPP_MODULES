@@ -1,33 +1,41 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 17:42:51 by mbari             #+#    #+#             */
-/*   Updated: 2021/11/04 12:34:41 by mbari            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "headers/Cat.hpp"
-#include "headers/Dog.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	int arr_size = 4;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::cout << "--------------------ClapTrap---------------------------------" << std::endl;
+	{
+		ClapTrap obj1;
+		ClapTrap obj_2("najib");
 
-	Animal* animals[arr_size];
+		obj1.attack("robot");
+		obj1.takeDamage(10);
+		obj1.takeDamage(10);
+		obj1.beRepaired(5);
+		obj1.attack("robot");
+		obj_2.beRepaired(3);
+		obj_2.attack("robot_2");
+		obj_2.beRepaired(3);
+	}
+	std::cout << "--------------------ScavTrap---------------------------------" << std::endl;
+	{
+		ScavTrap a;
+		ScavTrap b("Scav");
 
-	for (int k = 0; k < (arr_size / 2); k++)
-		animals[k] = new Dog();
-	for (int k = (arr_size / 2); k < arr_size; k++)
-		animals[k] = new Cat();
-	for ( int k = 0; k < arr_size; k++)
-		delete animals[k];
-
-	delete j;	//should not create a leak
-	delete i;
+		a.attack("a_Trap");
+		a.beRepaired(22);
+		a.takeDamage(21);
+		a.beRepaired(22);
+		a.guardGate();
+		a.guardGate();
+		b.attack("b_Trap");
+		b.takeDamage(101);
+		b.takeDamage(15);
+		b.attack("b_Trap");
+	}
+	return (0);
 }
+
+
+
+
+
