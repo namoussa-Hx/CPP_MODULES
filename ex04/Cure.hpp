@@ -17,6 +17,8 @@
 
 class Cure : public AMateria
 {
+	private:
+		std::string type;
 	public:
 		Cure();
 		~Cure();
@@ -25,8 +27,6 @@ class Cure : public AMateria
 		std::string const & getType() const;
 		Cure *clone() const;
 		void use(ICharacter& target);
-	private:
-		std::string _type;
 };
 
 #endif

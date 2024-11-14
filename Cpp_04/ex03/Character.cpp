@@ -2,7 +2,7 @@
 
 Character::Character(std::string name) : name(name)
 {
-	std::cout << "A character named " << name << " was created\n";
+	std::cout << "Character Default constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
 		this->inventory[i] = 0;
@@ -16,7 +16,7 @@ Character::~Character()
 		if (this->inventory[i])
 			delete this->inventory[i];
 	}
-	std::cout << "Character named " << this->name << " was destroyed\n";
+    std::cout << "Character Destructor called" << std::endl;
 }
 
 std::string const &Character::getName() const
@@ -26,12 +26,12 @@ std::string const &Character::getName() const
 
 Character::Character(Character const &src) : name(src.getName() + "_copy")
 {
+	 std::cout << "Character copy constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
 		if ((ref.inventory)[i])
 			(this->inventory)[i] = (ref.inventory[i])->clone();
 	}
-	std::cout << "A character named " << name << " was created from copy of " << ref.name << "\n";
 }
 
 Character & Character::operator=(Character const &src)
