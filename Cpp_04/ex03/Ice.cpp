@@ -5,18 +5,15 @@
 Ice::Ice()
 {
 	this->type = "Ice";
-	// std::cout << "Ice Default constructor called" << std::endl;;
 }
 
 Ice::~Ice()
 {
-	// std::cout << "Ice Destructor called" << std::endl;
 }
 
-Ice::Ice(Ice const &src)
+Ice::Ice(Ice const &src) : AMateria(src)
 {
 	this->type = src.getType();
-	// std::cout << "Ice copy constructor called" << std::endl;
 }
 
 Ice & Ice::operator=(Ice const &src)
@@ -26,10 +23,10 @@ Ice & Ice::operator=(Ice const &src)
 	return (*this);
 }
 
-std::string const & Ice::getType( void ) const
-{
-	return (this->type);
-}
+// std::string const & Ice::getType( void ) const
+// {
+// 	return (this->type);
+// }
 
 Ice *Ice::clone() const
 {
@@ -39,7 +36,5 @@ Ice *Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-	std::string target_name = target.getName();
-
-	std::cout << " shoots an ice bolt at " << target_name << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

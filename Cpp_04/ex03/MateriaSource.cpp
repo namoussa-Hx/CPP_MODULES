@@ -3,14 +3,13 @@
 
 MateriaSource::MateriaSource()
 {
-	// std::cout << "materia source default constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
-		this->inventory[i] = 0;
+		this->inventory[i] = NULL;
 	}
 }
 
-MateriaSource::MateriaSource(MateriaSource const &src)
+MateriaSource::MateriaSource(const MateriaSource  &src)
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -18,7 +17,6 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 		if (src.inventory[i])
 			this->inventory[i] = (src.inventory[i])->clone();
 	}
-	// std::cout << "materia source copy constructor called" << std::endl;
 }
 
 MateriaSource & MateriaSource::operator=(MateriaSource const & src)
@@ -37,17 +35,18 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inventory[i])
+		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
 	}
-	// std::cout << "Materia source Destoryed called " << std::endl;
 }
 
 void MateriaSource::learnMateria(AMateria *m)
 {
 	int i = 0;
 
-	while ((this->inventory)[i] != 0 && i < 4)
+	 if (!m)
+        return ;
+	while ((this->inventory)[i] != NULL && i < 4)
 		i++;
 	if (i >= 4)
 	{
@@ -56,7 +55,6 @@ void MateriaSource::learnMateria(AMateria *m)
 	}
 	(this->inventory)[i] = m;
 	
-	// std::cout << "Materia " << m->getType() << " learned\n";
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)
@@ -67,9 +65,8 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 		i++;
 	if (i >= 4 || !(this->inventory)[i])
 	{
-		std::cout << type << " materia does not exit\n";
+		std::cout << type << "failed create materia\n";
 		return (NULL);
 	}
-	std::cout << "Materia " << type << " created\n";
 	return (((this->inventory)[i])->clone());
 }

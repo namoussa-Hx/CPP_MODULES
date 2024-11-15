@@ -1,11 +1,17 @@
 #include "Character.hpp"
 
-Character::Character(std::string name) : name(name)
+Character::Character(void) : name("Default")
 {
-	// std::cout << "Character Default constructor called" << std::endl;
+    for (int i = 0; i < 4; i++)
+        inventory[i] = NULL;
+}
+
+Character::Character(const std::string &name)
+{
+	this->name = name;
 	for(int i = 0; i < 4; i++)
 	{
-		this->inventory[i] = 0;
+		this->inventory[i] = NULL;
 	}
 }
 
@@ -16,7 +22,6 @@ Character::~Character()
 		if (this->inventory[i])
 			delete this->inventory[i];
 	}
-    // std::cout << "Character Destructor called" << std::endl;
 }
 
 std::string const &Character::getName() const
@@ -26,7 +31,6 @@ std::string const &Character::getName() const
 
 Character::Character(Character const &src) : name(src.getName() + "_copy")
 {
-	//  std::cout << "Character copy constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
 		if ((src.inventory)[i])
@@ -52,7 +56,7 @@ void Character::equip(AMateria* m)
 
 	if (!m)
 		return ;
-	while ((this->inventory)[i] != 0 && i < 4)
+	while ((this->inventory)[i] != NULL && i < 4)
 		i++;
 	if (i >= 4)
 	{
@@ -60,30 +64,21 @@ void Character::equip(AMateria* m)
 		return ;
 	}
 	(this->inventory)[i] = m;
-	// std::cout << this->name << " equipped materia " << m->getType() << " in slot " << i << "\n";
 }
 
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= 4)
 		return ;
-		// std::cout << this->name << " tried to unequip nothing at slot " << idx << " and it did nothing\n";
 	else if (!(this->inventory)[idx])
 		return ;
 	else
-		(this->inventory)[idx] = 0;
+		(this->inventory)[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	std::string	name = this->getName();
-
-	if (idx < 0 || idx >= 4 || !(this->inventory)[idx])
-	{
-		std::cout << "Nothing found to use at index " << idx << std::endl;
-		return ;
-	}
-	std::cout << name;
-	((this->inventory)[idx])->use(target);
+ if ((idx >= 0 && idx < 4) && inventory[idx] != NULL)
+        inventory[idx]->use(target);
 }
 
