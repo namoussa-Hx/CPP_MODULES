@@ -2,9 +2,9 @@
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 
-Ice::Ice()
+Ice::Ice(): AMateria("ice")
 {
-	this->type = "Ice";
+	
 }
 
 Ice::~Ice()

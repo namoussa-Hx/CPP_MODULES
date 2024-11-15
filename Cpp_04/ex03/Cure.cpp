@@ -2,9 +2,9 @@
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
-	this->type = "Cure";
+
 }
 
 Cure::~Cure()

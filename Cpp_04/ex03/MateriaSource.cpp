@@ -65,7 +65,7 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 		i++;
 	if (i >= 4 || !(this->inventory)[i])
 	{
-		std::cout << type << "failed create materia\n";
+		std::cout << type << " failed create materia\n";
 		return (NULL);
 	}
 	return (((this->inventory)[i])->clone());
