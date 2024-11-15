@@ -5,18 +5,18 @@
 Cure::Cure()
 {
 	this->type = "Cure";
-	std::cout << "Cure Default constructor called" << std::endl;
+	// std::cout << "Cure Default constructor called" << std::endl;
 }
 
 Cure::~Cure()
 {
-	 std::cout << "Cure Destructor called" << std::endl;
+	//  std::cout << "Cure Destructor called" << std::endl;
 }
 
 Cure::Cure(Cure const &src)
 {
 	this->type = src.getType();
-	std::cout << "Cure copy constructor called" << std::endl;
+	// std::cout << "Cure copy constructor called" << std::endl;
 }
 
 Cure & Cure::operator=(Cure const &src)

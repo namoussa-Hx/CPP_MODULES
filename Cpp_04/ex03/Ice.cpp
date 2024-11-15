@@ -5,18 +5,18 @@
 Ice::Ice()
 {
 	this->type = "Ice";
-	std::cout << "Ice Default constructor called" << std::endl;;
+	// std::cout << "Ice Default constructor called" << std::endl;;
 }
 
 Ice::~Ice()
 {
-	std::cout << "Ice Destructor called" << std::endl;
+	// std::cout << "Ice Destructor called" << std::endl;
 }
 
 Ice::Ice(Ice const &src)
 {
 	this->type = src.getType();
-	std::cout << "Ice copy constructor called" << std::endl;
+	// std::cout << "Ice copy constructor called" << std::endl;
 }
 
 Ice & Ice::operator=(Ice const &src)

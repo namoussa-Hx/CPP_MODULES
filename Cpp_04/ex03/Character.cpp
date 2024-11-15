@@ -2,7 +2,7 @@
 
 Character::Character(std::string name) : name(name)
 {
-	std::cout << "Character Default constructor called" << std::endl;
+	// std::cout << "Character Default constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
 		this->inventory[i] = 0;
@@ -16,7 +16,7 @@ Character::~Character()
 		if (this->inventory[i])
 			delete this->inventory[i];
 	}
-    std::cout << "Character Destructor called" << std::endl;
+    // std::cout << "Character Destructor called" << std::endl;
 }
 
 std::string const &Character::getName() const
@@ -26,7 +26,7 @@ std::string const &Character::getName() const
 
 Character::Character(Character const &src) : name(src.getName() + "_copy")
 {
-	 std::cout << "Character copy constructor called" << std::endl;
+	//  std::cout << "Character copy constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
 		if ((src.inventory)[i])
@@ -51,10 +51,7 @@ void Character::equip(AMateria* m)
 	int i = 0;
 
 	if (!m)
-	{
-		std::cout << this->name << " tried to equip nothing and it did nothing\n";
 		return ;
-	}
 	while ((this->inventory)[i] != 0 && i < 4)
 		i++;
 	if (i >= 4)
@@ -63,21 +60,18 @@ void Character::equip(AMateria* m)
 		return ;
 	}
 	(this->inventory)[i] = m;
-	std::cout << this->name << " equipped materia " << m->getType() << " in slot " << i << "\n";
+	// std::cout << this->name << " equipped materia " << m->getType() << " in slot " << i << "\n";
 }
 
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= 4)
-		std::cout << this->name << " tried to unequip nothing at slot " << idx << " and it did nothing\n";
+		return ;
+		// std::cout << this->name << " tried to unequip nothing at slot " << idx << " and it did nothing\n";
 	else if (!(this->inventory)[idx])
-		std::cout << this->name << " has nothing equipped at slot " << idx << " so he can't unequip it\n";
+		return ;
 	else
-	{
-		AMateria *ptr = (this->inventory)[idx];
-		std::cout << this->name << " unequipped " << ptr->getType() << " at slot "<< idx << "\n";
 		(this->inventory)[idx] = 0;
-	}
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -93,7 +87,3 @@ void Character::use(int idx, ICharacter& target)
 	((this->inventory)[idx])->use(target);
 }
 
-AMateria	*Character::getMateriaFromInventory(int idx)
-{
-	return (this->inventory)[idx];
-}
