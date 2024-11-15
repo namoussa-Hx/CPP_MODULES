@@ -25,7 +25,7 @@ AMateria::AMateria(AMateria const &src)
 AMateria &AMateria::operator=(const AMateria &src)
 {
     std::cout << "materia copy assignment operator called" << std::endl;
-    if(this == src)
+    if(this == &src)
       return *this;
 
     this->type = src.type;

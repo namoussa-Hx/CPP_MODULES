@@ -2,8 +2,9 @@
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 
-Ice::Ice() : type("ice")
+Ice::Ice()
 {
+	this->type = "Ice";
 	std::cout << "Ice Default constructor called" << std::endl;;
 }
 
@@ -12,8 +13,9 @@ Ice::~Ice()
 	std::cout << "Ice Destructor called" << std::endl;
 }
 
-Ice::Ice(Ice const &src) : type(src.getType())
+Ice::Ice(Ice const &src)
 {
+	this->type = src.getType();
 	std::cout << "Ice copy constructor called" << std::endl;
 }
 
