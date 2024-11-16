@@ -14,7 +14,7 @@ int main()
 	// std::cout << Wrongmeta->getType() << " " << std::endl;
 	i->makeSound(); //output the cat sound!
 	j->makeSound();
-	// meta->makeSound();
+	meta->makeSound();
 	// Wrongmeta->makeSound();
 
 	delete j;

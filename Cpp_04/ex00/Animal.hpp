@@ -20,4 +20,3 @@ class Animal
 };
 
 #endif
-// slightly
