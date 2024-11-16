@@ -3,6 +3,7 @@
 
 MateriaSource::MateriaSource()
 {
+	this->head = NULL;
 	for(int i = 0; i < 4; i++)
 	{
 		this->inventory[i] = NULL;
@@ -38,6 +39,7 @@ MateriaSource::~MateriaSource()
 		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
 	}
+	gc_free_list(&head);
 }
 
 void MateriaSource::learnMateria(AMateria *m)
@@ -50,7 +52,7 @@ void MateriaSource::learnMateria(AMateria *m)
 		i++;
 	if (i >= 4)
 	{
-		std::cout << "Can't learn more than 4 Materia";
+		std::cout << "Can't learn more than 4 Materia\n";
 		return ;
 	}
 	(this->inventory)[i] = m;
@@ -68,5 +70,7 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 		std::cout << type << " failed create materia\n";
 		return (NULL);
 	}
-	return (((this->inventory)[i])->clone());
+	AMateria *temp = ((this->inventory)[i])->clone();
+	gc_addback(&head, temp);
+	return (temp);
 }

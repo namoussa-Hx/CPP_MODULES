@@ -17,11 +17,11 @@ Character::Character(const std::string &name)
 
 Character::~Character()
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->inventory[i])
-			delete this->inventory[i];
-	}
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	if (this->inventory[i])
+	// 		delete this->inventory[i];
+	// }
 }
 
 std::string const &Character::getName() const
@@ -60,7 +60,7 @@ void Character::equip(AMateria* m)
 		i++;
 	if (i >= 4)
 	{
-		std::cout << this->name << " can't equip more than 4 Materia";
+		std::cout << this->name << " can't equip more than 4 Materia \n";
 		return ;
 	}
 	(this->inventory)[i] = m;
