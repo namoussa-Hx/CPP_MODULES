@@ -16,6 +16,7 @@ src->learnMateria(new Ice());
 src->learnMateria(new Cure());
 // src->learnMateria(new Cure());
 
+
 ICharacter* me = new Character("me");
 
 AMateria* tmp;

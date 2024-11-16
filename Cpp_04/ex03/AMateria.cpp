@@ -2,7 +2,7 @@
 
 AMateria::AMateria()
 {
-	this->type = "unknwon";
+	this->type = "Default";
 }
 
 AMateria::AMateria(std::string const &type) : type(type)
